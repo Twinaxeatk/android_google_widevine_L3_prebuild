@@ -5,8 +5,7 @@ repository.** The files fall into two groups with very different terms.
 
 ## 1. Google Widevine binaries: proprietary, not licensed by this repository
 
-These files, on the per-architecture branches (for example `android-13_amd64`),
-are proprietary software of **Google LLC**:
+These files are proprietary software of **Google LLC**:
 
 | File | Owner |
 |---|---|
@@ -23,7 +22,7 @@ Google LLC.
   you any license** to them. Nothing in this repository grants, transfers or
   implies any right to use, copy, modify or redistribute them.
 - They were extracted, unmodified, from an official Google ChromeOS recovery
-  image (see the README on each branch for the exact image). That image ships them
+  image (see [README.md](README.md#provenance)). That image ships them
   **without a separate license text**: its open-source notice
   (`system/etc/NOTICE.html.gz`) does not cover them, and the vendor partition
   carries no notice of its own. Any right to use them comes only from Google,
@@ -67,16 +66,17 @@ owner through GitHub.
 
 These files contain no Google code and were written for this repository:
 
-- `README.md` and `LICENSE.md` (all branches)
-- `Android.bp`, `widevine.mk` and `sepolicy/file_contexts` (per-architecture
-  branches)
+- `Android.bp`
+- `widevine.mk`
+- `sepolicy/file_contexts`
+- `README.md`
+- `LICENSE.md`
 
 They are licensed under the
 [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 `prebuilts/etc/vintf/manifest_android.hardware.drm-service.widevine.xml`
-(per-architecture branches) comes from the same image but is Android Open
-Source Project material; it
+comes from the same image but is Android Open Source Project material; it
 carries its own Apache License 2.0 header, which applies.
 
 ---
