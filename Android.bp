@@ -1,0 +1,45 @@
+// Google's Android 13 Widevine CDM (AIDL android.hardware.drm.IDrmFactory/widevine
+// V1), prebuilt from an official ChromeOS ARCVM image. See README.md.
+//
+// L1 is deliberately absent: liboemcrypto.so (the ChromeOS L1 shim) is not
+// shipped, so libwvaidl.so falls back to its built-in L3 immediately instead of
+// waiting 10 s per CDM instance for an OEMCrypto service a non-Chromebook does
+// not have.
+
+cc_prebuilt_library_shared {
+    name: "libwvaidl",
+    vendor: true,
+    compile_multilib: "64",
+    check_elf_files: false,
+    strip: {
+        none: true,
+    },
+    enabled: false,
+    arch: {
+        arm64: {
+            enabled: true,
+            srcs: ["prebuilts/arm64/lib64/libwvaidl.so"],
+        },
+    },
+}
+
+cc_prebuilt_binary {
+    name: "android.hardware.drm-service-lazy.widevine",
+    vendor: true,
+    relative_install_path: "hw",
+    compile_multilib: "64",
+    check_elf_files: false,
+    strip: {
+        none: true,
+    },
+    enabled: false,
+    arch: {
+        arm64: {
+            enabled: true,
+            srcs: ["prebuilts/arm64/bin/hw/android.hardware.drm-service-lazy.widevine"],
+        },
+    },
+    init_rc: ["prebuilts/etc/init/android.hardware.drm-service-lazy.widevine.rc"],
+    vintf_fragments: ["prebuilts/etc/vintf/manifest_android.hardware.drm-service.widevine.xml"],
+    required: ["libwvaidl"],
+}

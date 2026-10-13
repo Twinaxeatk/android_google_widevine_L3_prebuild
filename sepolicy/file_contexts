@@ -1,0 +1,3 @@
+# The hal_drm_widevine domain and its _exec type are not in AOSP; the device
+# sepolicy must define them (fydroid does, in fydroid-rt-common/sepolicy).
+/vendor/bin/hw/android\.hardware\.drm-service-lazy\.widevine    u:object_r:hal_drm_widevine_exec:s0
